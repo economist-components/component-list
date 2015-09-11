@@ -20,14 +20,14 @@ describe('List', () => {
     const li = TestUtils.scryRenderedDOMComponentsWithTag(render, 'li');
 
     const ulClassNames = ul.props.className.split(' ');
-    ulClassNames.should.contain('b-list');
+    ulClassNames.should.contain('list');
     ulClassNames.length.should.equal(1);
     li.length.should.equal(0);
   });
 
   it('should concat the class names on the ul tag', () => {
     const render = TestUtils.renderIntoDocument(
-      <List className="b-list--test">
+      <List className="list--test">
         <a href="#">1</a>
       </List>
     );
@@ -35,14 +35,14 @@ describe('List', () => {
     const li = TestUtils.scryRenderedDOMComponentsWithTag(render, 'li');
 
     const ulClassNames = ul.props.className.split(' ');
-    ulClassNames.should.contain('b-list--test');
-    ulClassNames.should.contain('b-list');
+    ulClassNames.should.contain('list--test');
+    ulClassNames.should.contain('list');
     ulClassNames.length.should.equal(2);
 
     li.length.should.equal(1);
     li.map(function (e) {
       const liClassNames = e.props.className.split(' ');
-      liClassNames.should.contain('b-list__item');
+      liClassNames.should.contain('list__item');
       liClassNames.length.should.equal(1);
     });
   });
@@ -58,13 +58,13 @@ describe('List', () => {
     const li = TestUtils.scryRenderedDOMComponentsWithTag(render, 'li');
 
     const ulClassNames = ul.props.className.split(' ');
-    ulClassNames.should.contain('b-list');
+    ulClassNames.should.contain('list');
     ulClassNames.length.should.equal(1);
 
     li.length.should.equal(2);
     li.map(function (e) {
       const liClassNames = e.props.className.split(' ');
-      liClassNames.should.contain('b-list__item');
+      liClassNames.should.contain('list__item');
       liClassNames.length.should.equal(1);
     });
   });
