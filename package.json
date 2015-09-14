@@ -102,7 +102,7 @@
     "build": "babel index.es6 --stage=0 --loose > index.js",
     "ci": "./build.sh",
     "doc": "parallelshell 'npm run doc:html' 'npm run doc:js' 'npm run doc:css'",
-    "doc:css": "echo --",
+    "doc:css": "cssnext --sourcemap example.css bundle.css",
     "doc:css:watch": "npm run doc:css -- --watch",
     "doc:html": "devpack-doc index standalone",
     "doc:html:watch": "npm-watch",
@@ -126,8 +126,9 @@
     "react": "^0.13.3"
   },
   "devDependencies": {
-    "@economist/component-devpack": "^2.5.0",
+    "@economist/component-devpack": "3.1.7",
     "babel": "^5.8.23",
+    "babelify": "^6.3.0",
     "browser-sync": "^2.8.2",
     "browserify": "^11.0.1",
     "chai": "^3.2.0",
@@ -141,6 +142,8 @@
     "eslint-plugin-one-variable-per-var": "^0.0.3",
     "eslint-plugin-react": "^3.3.1",
     "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.0",
+    "karma-sauce-launcher": "^0.2.14",
     "mocha": "^2.2.5",
     "npm-watch": "0.0.1",
     "parallelshell": "^2.0.0",
