@@ -15,25 +15,21 @@ export default class List extends React.Component {
   renderChildren() {
     function createListItem(child) {
       return (
-        <li
-          className="ec-list__item">
-          {child}
-        </li>
+        <li className="list__item">{child}</li>
       );
     }
     return React.Children.map(this.props.children, createListItem);
   }
 
   render() {
-    let className = 'ec-list';
+    let className = 'list';
     if (this.props.className) {
-      className += (' ' + this.props.className);
+      className = [ className, this.props.className ].join(' ');
     }
     return (
       <ul
-        className={className}>
-        {this.renderChildren()}
-      </ul>
+        className={className}
+      >{this.renderChildren()}</ul>
     );
   }
 }

@@ -27,8 +27,7 @@ var List = (function (_React$Component) {
     function createListItem(child) {
       return _reactAddons2['default'].createElement(
         'li',
-        {
-          className: 'ec-list__item' },
+        { className: 'list__item' },
         child
       );
     }
@@ -36,14 +35,15 @@ var List = (function (_React$Component) {
   };
 
   List.prototype.render = function render() {
-    var className = 'ec-list';
+    var className = 'list';
     if (this.props.className) {
-      className += ' ' + this.props.className;
+      className = [className, this.props.className].join(' ');
     }
     return _reactAddons2['default'].createElement(
       'ul',
       {
-        className: className },
+        className: className
+      },
       this.renderChildren()
     );
   };
@@ -63,4 +63,3 @@ var List = (function (_React$Component) {
 
 exports['default'] = List;
 module.exports = exports['default'];
-

@@ -7,17 +7,14 @@ const context = [
     text: 'Subscribe',
     href: 'http://www.economistgroupmedia.com',
   }, {
-    itemProp: 'legalName',
-    itemType: 'http://schema.org/Company',
     title: 'Economist',
     text: 'Economist',
     href: 'http://www.economist.com/rights/',
   },
 ];
+function mapContextToAnchor(contextItem) {
+  return (<a {...contextItem}>{contextItem.title}</a>);
+}
 export default (
-  <List className="c-example--horizontal">
-    {context.map(function mapContextToAnchor(d) {
-      return (<a {...d}>{d.title}</a>);
-    })}
-  </List>
+  <List className="c-example--horizontal">{context.map(mapContextToAnchor)}</List>
 );
