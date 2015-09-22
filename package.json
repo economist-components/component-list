@@ -102,7 +102,7 @@
     "build": "babel index.es6 --stage=0 --loose > index.js",
     "ci": "./build.sh",
     "doc": "parallelshell 'npm run doc:html' 'npm run doc:js' 'npm run doc:css'",
-    "doc:css": "cssnext --sourcemap example.css bundle.css",
+    "doc:css": "cssnext --sourcemap index.css > bundle.css",
     "doc:css:watch": "npm run doc:css -- --watch",
     "doc:html": "devpack-doc index standalone",
     "doc:html:watch": "npm-watch",
