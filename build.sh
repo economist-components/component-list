@@ -1,16 +1,17 @@
 #!/bin/bash
 
-SSH_KEY=${1:-/root/.ssh/id_rsa}
+SSH_KEY="${1:-/root/.ssh/id_rsa}"
+DOCKER_IMAGE="economistprod/node4-base"
 
 [[ ${NPM_TOKEN:-} = '' ]] && { echo "NPM_TOKEN empty"; exit 1; }
 [[ ${SAUCE_ACCESS_KEY:-} = '' ]] && { echo "SAUCE_ACCESS_KEY empty"; exit 2; }
 
-docker pull sublimino/node4-base
+docker pull "${DOCKER_IMAGE}"
 
 exec docker run \
     -v "${SSH_KEY}":/root/.ssh/id_rsa \
-    -v $(pwd):/code \
-    sublimino/node4-base \
+    -v "$(pwd)":/code \
+    "${DOCKER_IMAGE}" \
     /bin/sh -cx "\
         trap 'chmod 777 node_modules -R' EXIT && \
         cd /code && \
