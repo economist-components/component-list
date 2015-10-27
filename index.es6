@@ -15,7 +15,7 @@ export default class List extends React.Component {
   renderChildren() {
     function createListItem(child) {
       return (
-        <li className="list__item">{child}</li>
+        <li className="list__item" key={child.key}>{child}</li>
       );
     }
     let children = this.props.children;
