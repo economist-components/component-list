@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 
 export default class List extends React.Component {
 
@@ -18,7 +18,14 @@ export default class List extends React.Component {
         <li className="list__item">{child}</li>
       );
     }
-    return React.Children.map(this.props.children, createListItem);
+    let children = this.props.children;
+    if (typeof children === 'undefined') {
+      children = [];
+    }
+    if (typeof children.length === 'undefined') {
+      children = [ children ];
+    }
+    return children.map(createListItem);
   }
 
   render() {
