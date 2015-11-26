@@ -50,8 +50,8 @@ describe('List', () => {
   it('should render a ul tag and each children inside a li tag', () => {
     const render = TestUtils.renderIntoDocument(
       <List>
-        <a href="#">1</a>
-        <a href="#">2</a>
+        <a href="#" key="1">1</a>
+        <a href="#" key="2">2</a>
       </List>
     );
     const ulTag = TestUtils.findRenderedDOMComponentWithTag(render, 'ul');
