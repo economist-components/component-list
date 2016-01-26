@@ -68,4 +68,15 @@ describe('List', () => {
       liClassNames.length.should.equal(1);
     });
   });
+
+  it('each child item should lose their key, as it\'s only useful on the <li>', () => {
+    const listInstance = new List({}, {});
+    listInstance.props.children = (<a key="1">foo</a>);
+    const rendered = listInstance.render();
+    const liTag = rendered.props.children[0];
+    const aTag = liTag.props.children;
+    (aTag.key == null).should.equal(true);
+    liTag.key.should.equal('1');
+    aTag.props.children.should.equal('foo')
+  });
 });
