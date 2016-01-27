@@ -1,5 +1,7 @@
 import List from '../index.es6';
 import React from 'react/addons';
+import chai from 'chai';
+const should = chai.should;
 
 const TestUtils = React.addons.TestUtils;
 describe('List', () => {
@@ -75,7 +77,7 @@ describe('List', () => {
     const rendered = listInstance.render();
     const liTag = rendered.props.children[0];
     const aTag = liTag.props.children;
-    (aTag.key == null).should.equal(true);
+    should(aTag.key).equal(undefined);
     liTag.key.should.equal('1');
     aTag.props.children.should.equal('foo')
   });
