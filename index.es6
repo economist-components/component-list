@@ -14,8 +14,14 @@ export default class List extends React.Component {
 
   renderChildren() {
     function createListItem(child) {
+      const key = child.key;
+      const childWithoutKey = React.cloneElement(
+        { ...child, key: null },
+        child.props,
+        child.props.children
+      );
       return (
-        <li className="list__item" key={child.key}>{child}</li>
+        <li className="list__item" key={key}>{childWithoutKey}</li>
       );
     }
     let children = this.props.children;

@@ -1,5 +1,7 @@
 import List from '../index.es6';
 import React from 'react/addons';
+import chai from 'chai';
+const should = chai.should;
 
 const TestUtils = React.addons.TestUtils;
 describe('List', () => {
@@ -67,5 +69,16 @@ describe('List', () => {
       liClassNames.should.contain('list__item');
       liClassNames.length.should.equal(1);
     });
+  });
+
+  it('each child item should lose their key, as it\'s only useful on the <li>', () => {
+    const listInstance = new List({}, {});
+    listInstance.props.children = (<a key="1">foo</a>);
+    const rendered = listInstance.render();
+    const liTag = rendered.props.children[0];
+    const aTag = liTag.props.children;
+    should(aTag.key).equal(undefined);
+    liTag.key.should.equal('1');
+    aTag.props.children.should.equal('foo')
   });
 });
