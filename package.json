@@ -124,7 +124,7 @@
     "watch": "parallelshell 'npm run doc:watch' 'npm run prepublish:watch' 'npm run serve'"
   },
   "peerDependencies": {
-    "react": "^0.14.0"
+    "react": "*"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.3.1",
@@ -150,7 +150,7 @@
     "npm-watch": "0.0.1",
     "parallelshell": "^2.0.0",
     "pre-commit": "^1.0.10",
-    "react": "^0.14.8",
+    "react": "*",
     "watchify": "^3.4.0"
   },
   "pre-commit": [
